@@ -2,7 +2,7 @@
   "name": "helium-hotspot-nearby",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://vinyl704.github.io/helium-hotspot-nearby",
+ 
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -21,9 +21,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-  },
-  "eslintConfig": {
+    "deploy": "gh-pages -d build",
+
     "extends": [
       "react-app",
       "react-app/jest"
