@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/helium-hotspot-nearby/static/css/main.5e27ad85.chunk.css",
+    "main.js": "/helium-hotspot-nearby/static/js/main.aa319d2b.chunk.js",
+    "main.js.map": "/helium-hotspot-nearby/static/js/main.aa319d2b.chunk.js.map",
+    "runtime-main.js": "/helium-hotspot-nearby/static/js/runtime-main.5cbae936.js",
+    "runtime-main.js.map": "/helium-hotspot-nearby/static/js/runtime-main.5cbae936.js.map",
+    "static/js/2.a6779542.chunk.js": "/helium-hotspot-nearby/static/js/2.a6779542.chunk.js",
+    "static/js/2.a6779542.chunk.js.map": "/helium-hotspot-nearby/static/js/2.a6779542.chunk.js.map",
+    "static/js/3.d2d2aa87.chunk.js": "/helium-hotspot-nearby/static/js/3.d2d2aa87.chunk.js",
+    "static/js/3.d2d2aa87.chunk.js.map": "/helium-hotspot-nearby/static/js/3.d2d2aa87.chunk.js.map",
+    "index.html": "/helium-hotspot-nearby/index.html",
+    "static/css/main.5e27ad85.chunk.css.map": "/helium-hotspot-nearby/static/css/main.5e27ad85.chunk.css.map",
+    "static/js/2.a6779542.chunk.js.LICENSE.txt": "/helium-hotspot-nearby/static/js/2.a6779542.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/helium-hotspot-nearby/static/media/chris-barbalis-On6luZM9yXc-unsplash.4280e6cc.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5cbae936.js",
+    "static/js/2.a6779542.chunk.js",
+    "static/css/main.5e27ad85.chunk.css",
+    "static/js/main.aa319d2b.chunk.js"
+  ]
+}
