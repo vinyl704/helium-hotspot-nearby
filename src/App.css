@@ -1,5 +1,107 @@
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:100vw;
+  min-height: 100vh;
+  
+}
+.addy{
+  font-size: 10px;
+  padding: 0 5px;
+}
+
+
+.timeframe{
+  font-weight: 700;
+}
+.bg{
+  z-index: -1;
+  background-size: cover;
+  background-image: url('./chris-barbalis-On6luZM9yXc-unsplash.jpg');
+  background-position: center;
+  width:99.8vw;
+  height:99.8vh;
+  background-position: center;
+  position: fixed;
+  top:0;
+  left:0;
+}
+
+#distance{
+  width:120px;
+  height:20px;
+  font-size: 16px;
+  
+  margin: 0;
+  text-align: center;
+  padding: 12px;
+}
+#timeFrame{
+  width:120px;
+  text-align: center;
+  height:max-content;
+  padding: 6px 0;
+  margin-top:10px;
+}
+
+
+
+ul{
+  margin-top:10px;
+  scrollbar-width: none;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  border: 1px solid white;
+  background: rgba(170, 163, 163, 0.102); 
+  backdrop-filter: blur(9px);
+  border-radius: 30px;
+  max-height:60vh;
+  overflow:auto;
+  scrollbar-width: 0;
+}
+
+.spots{
+  height: min-content;
+  background:rgba(0, 0, 255, 0.378);
+  color:white;
+  backdrop-filter: blur(9px) opacity(20);
+  overflow: hidden;
+}
+
+.spots:hover{
+  display:inline-block;
+  
+  position:relative;
+  top:0vmin;
+  left:35;
+  justify-self: center;
+  width:30vw;
+  height:40vh;
+  z-index:9999;
+  background:rgba(0, 0, 255, 0.578);
+  
+  backdrop-filter: blur(18px) opacity(40);
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  font-size:21px;
+  margin:auto;
+  line-height: 2em;
+}
+
+
+h1{
+  margin:15px;
+  
+}
+.distance{
+  font-weight: 800;
 }
 
 .App-logo {
@@ -7,11 +109,7 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+
 
 .App-header {
   background-color: #282c34;
@@ -28,11 +126,5 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+
