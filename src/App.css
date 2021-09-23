@@ -68,31 +68,34 @@ ul{
   scrollbar-width: 0;
 }
 
+@media(max-width:900px) {
+  ul{
+    grid-template-columns: auto auto;
+  }
+}
+
+@media(max-width:600px) {
+  ul{
+    grid-template-columns: auto;
+  }
+}
+
 .spots{
-  height: min-content;
+  height: max-content;
   background:rgba(0, 0, 255, 0.378);
   color:white;
   backdrop-filter: blur(9px) opacity(20);
   overflow: hidden;
 }
 
-.spots:hover{
-  display:inline-block;
+.spots:active{
   
-  position:relative;
-  top:0vmin;
-  left:35;
-  justify-self: center;
-  width:30vw;
-  height:40vh;
-  z-index:9999;
+  
   background:rgba(0, 0, 255, 0.578);
   
   backdrop-filter: blur(18px) opacity(40);
   transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-  font-size:21px;
-  margin:auto;
-  line-height: 2em;
+  
 }
 
 
