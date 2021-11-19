@@ -44,15 +44,16 @@
   text-align: center;
   padding: 12px;
 }
-#timeFrame{
+#timeFrame, #measurement{
   width:120px;
   text-align: center;
   height:max-content;
   padding: 6px 0;
   margin-top:10px;
+  font-size: 16px;
 }
 
-#timeLabel,#distLabel{
+#timeLabel,#distLabel,#measurementLabel{
   font-weight:bold;
 }
 
@@ -90,6 +91,7 @@ ul{
   color:white;
   backdrop-filter: blur(9px) opacity(20);
   overflow: hidden;
+  padding:10px;
 }
 
 .spots:active{
