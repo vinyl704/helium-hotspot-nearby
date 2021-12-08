@@ -42,7 +42,7 @@ function App() {
       fetchData();
     
   }
-  ,[onload, dist]);
+  ,[setData,lat,long,dist]);
     
 
 const handleChange=(event)=>{
