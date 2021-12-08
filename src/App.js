@@ -8,12 +8,13 @@ function App() {
   const [lat, setLat] = useState('');
   const [long, setLong] = useState('');
   const [data, setData] = useState([]);
-  const [dist, setDist] = useState([10000]);
+  const [dist, setDist] = useState(10000);
   const [timeFrame,setTimeFrame] =useState("1");
   const [measurement,setMeasurement] = useState('meters')
   let mdist = dist*3/5280
           //console.log(measurement)
 
+    
   
   useEffect(()=>{
     const fetchData = async()=>{
@@ -24,10 +25,7 @@ function App() {
        setLong(long);
       });
 
-      
-      
-      console.log(measurement)
-      if(lat !== '' && long !==''){
+            if(lat !== '' && long !==''){
         
         await fetch(`https://api.helium.io/v1/hotspots/location/distance?lat=${lat}&lon=${long}&distance=${dist}`, {mode:'cors'})
       .then(res=>res.json())
@@ -44,38 +42,50 @@ function App() {
       fetchData();
     
   }
-  ,[lat,long,dist]);
-  
- 
-    console.log(measurement)
-  
+  ,[onload, dist]);
+    
+
 const handleChange=(event)=>{
   if(measurement == 'meters'){
-    setDist(event.target.value) 
-  }else(setDist(event.target.value * 5280/3))
+    
+            setDist(event.target.value);
+
+    
+    
+  }else{  
+            setDist(event.target.value * 5280/3)  
+  }
 };
 
 const handleRange=(event)=>{
-  setTimeFrame(event.target.value);
+  setTimeout(() => {
+    setTimeFrame(event.target.value);
+  }, 2000);
+  
 };
 
 const changeMeasure=(event)=>{
   setMeasurement(event.target.value)
   if(event.target.value == 'meters'){
-    return dist
-  }else{
     setDist(dist)
-    return mdist
+  }else{
+    
+    document.getElementById('distance').placeholder = mdist
+    setDist(dist)
+    
     
   }
   
 
   
 }
-
-
- const spots = data.map((a,b)=>
-           (
+let spots = [];
+if(data){
+ spots =
+ 
+ data.map((a,b)=>{
+        
+          return(
               <ul className="spots" style={{listStyleType:'none',display:'flex',flexDirection:'column',margin:20}} key={b}>
                 <li><strong>{a.name}</strong></li>
                 <li className="addy">{a.address}</li>
@@ -84,12 +94,15 @@ const changeMeasure=(event)=>{
                 <li>City: {a.geocode.long_city}</li>
                 <li>Reward Scale: {a.reward_scale}</li> 
                 <DistanceBetween dist ={a.distance} oLat={lat} oLong={long} destLat = {a.lat} destLong = {a.lng}/>
-                <Rewards a={a.address} timeFrame={timeFrame}/>
+                <Rewards a={a.address} timeFrame={timeFrame} />
             </ul>
-            )
-          )
+            )}
+          )} 
+
+
+
           //ui changing
-  function f(){
+  let disp =function(){
     if (measurement=='meters'){
       return dist
     }else{return mdist}
@@ -100,10 +113,9 @@ const changeMeasure=(event)=>{
      <h1>
        Hotspots near you
      </h1>
-     <p>There are <span className="distance">{spots.length||0}</span> Helium Hotspots within <br/>{f()} {measurement} of your location</p>
-     <input name="distance" type='number' placeholder={f()} id='distance' onChange={handleChange}/> 
+     <p>There are <span className="distance">{spots.length}</span> Helium Hotspots within <br/>{disp()} {measurement} of your location</p>
+     <input name="distance" type='number' placeholder={disp()} value={disp()} id='distance' onChange={handleChange} min="1"/> 
      <label id="distLabel" for="distance">{measurement.charAt(0).toUpperCase()+measurement.substr(1)}</label>
-     
      <select name="timeFrame" id="timeFrame" onChange={handleRange}>
        <option value='1'>1 Day</option>
        <option value="7">7 Days</option>
@@ -123,7 +135,7 @@ const changeMeasure=(event)=>{
      {
      spots!='undefined'?(<ul>{spots}</ul>):(<div>
        <Dimmer active>
-          <Loader/>
+          <Loader active>Loading</Loader>
         </Dimmer>
         </div>) 
       }

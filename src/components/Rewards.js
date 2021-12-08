@@ -1,21 +1,34 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 
 const Rewards  = (props)=>{
 
   const [rw, setRw] = useState([]);
 
-  const fetchy = async()=>{
-    fetch(`https://api.helium.io/v1/hotspots/${props.a}/rewards/sum?min_time=-${props.timeFrame}%20day`,{mode:'cors'})
+  
+     
+    const fetchy = async()=>{
+      
+      await fetch(`https://api.helium.io/v1/hotspots/${props.a}/rewards/sum?min_time=-${props.timeFrame}%20day`,{mode:'cors'})
      .then(res=>res.json())
        .then(result=> {
-          setRw(result.data.total.toFixed(5));
-        });
-        
+
+        if(result.data.total){
+          setRw(result.data.total.toFixed(5))
+        }else{
+          setRw(0);
+        }
+        }); 
   }
 
-  fetchy();
+ useEffect(() => {
+    fetchy();
 
-  return (<li><span id="rw">{rw}</span> HNT in the last <span className="timeframe">{props.timeFrame}</span> day(s)</li>);
+}, [setRw,props.a,props.timeFrame])
+  
+ 
+return (<li onClick={fetchy}><span id="rw">{rw}</span> HNT in the last <span className="timeframe">{props.timeFrame}</span> day(s)</li>);
+
+  
 };
 
 export default Rewards;
