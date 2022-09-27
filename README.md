@@ -1,3 +1,5 @@
+##### Soon to be deprecated
+
 # helium-hotspot-nearby
 
 ### What is this?
